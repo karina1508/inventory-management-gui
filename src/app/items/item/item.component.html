@@ -1,0 +1,26 @@
+<div class="card">
+
+  <div class="card-header">
+    <h2>item component</h2>
+  </div>
+
+  <ng-container *ngIf="(item | async) as it">
+
+    <ul class="list-group">
+      <li class="list-group-item">No: {{it.itemNo}}</li>
+      <li class="list-group-item">Name: {{it.name}}</li>
+      <li class="list-group-item d-flex justify-content-between">
+        <div>Amount: {{it.amount}}</div>
+        <div class="d-flex">
+          <button class="btn btn-info" (click)="withdrawalItem(it)">-</button>
+          <input class="form-control mx-2" type="number" [(ngModel)]="changeAmount">
+          <button class="btn btn-info" (click)="depositItem(it)">+</button>
+        </div>
+      </li>
+      <li class="list-group-item">Inventory code: {{it.inventoryCode}}</li>
+    </ul>
+
+  </ng-container>
+</div>
+
+<button class="btn btn-info" (click)="navigateBack()">< Back</button>

@@ -1,0 +1,27 @@
+<div class="card">
+  <form class="card-body" [formGroup]="form">
+    <div class="form-group d-flex flex-column">
+      <label>Name
+        <input required
+               type="text"
+               class="form-control"
+               [ngClass]="form.get('name')?.invalid && form.get('name')?.touched && 'is-invalid'"
+               formControlName="name">
+      </label>
+      <label>Amount
+        <input type="number" class="form-control" formControlName="amount">
+      </label>
+      <label>Inventory code
+        <input type="text" class="form-control"
+               [ngClass]="form.get('inventoryCode')?.invalid && form.get('inventoryCode')?.touched && 'is-invalid'"
+               formControlName="inventoryCode">
+      </label>
+
+    </div>
+    <div class="text-right">
+      <button class="btn  btn-danger mr-2" (click)="handleClose()">Reset</button>
+      <button class="btn  btn-info" [disabled]="form.invalid" (click)="handleSave()">Save</button>
+
+    </div>
+  </form>
+</div>
